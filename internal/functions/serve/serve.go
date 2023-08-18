@@ -138,6 +138,7 @@ func ServeFunctions(ctx context.Context, envFilePath string, noVerifyJWT *bool, 
 	var cmdString string
 	{
 		cmd := []string{"edge-runtime", "start", "--main-service", "/home/deno/main", "-p", "8081"}
+		cmd = append(cmd, "--unsafely_ignore_certificate_errors")
 		if viper.GetBool("DEBUG") {
 			cmd = append(cmd, "--verbose")
 		}
